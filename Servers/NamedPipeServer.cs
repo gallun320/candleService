@@ -5,7 +5,7 @@ using System.IO.Pipes;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace GraphCandleApp.Loaders.Connections
+namespace GraphCandleApp.Servers
 {
     public class NamedPipeServer : IDisposable
     {

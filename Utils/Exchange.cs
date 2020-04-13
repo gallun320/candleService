@@ -1,6 +1,6 @@
 ﻿namespace GraphCandleApp.Utils
 {
-    public enum Exchange : byte
+    /*public enum Exchange : byte
     {
         None = 0,
         Binance = 1,
@@ -12,5 +12,5 @@
         Huobi = 8,
         FTX = 9,
         BinanceFutures = 11,
-    }
+    }*/
 }

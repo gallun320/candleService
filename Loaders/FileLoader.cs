@@ -1,4 +1,6 @@
-﻿using GraphCandleApp.Utils;
+﻿using ExchangeApi.Enums;
+using ExchangeApi.Rest.Future.Data.Trades;
+using GraphCandleApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;

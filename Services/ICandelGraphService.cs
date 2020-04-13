@@ -1,4 +1,5 @@
-﻿using GraphCandleApp.Utils;
+﻿using ExchangeApi.Rest.Future.Data.Trades;
+using GraphCandleApp.Utils;
 
 namespace GraphCandleApp.Services
 {

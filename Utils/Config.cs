@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ExchangeApi.Enums;
+using System.Collections.Generic;
 
 namespace GraphCandleApp.Utils
 {

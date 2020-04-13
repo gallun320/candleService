@@ -1,10 +1,12 @@
-﻿using GraphCandleApp.Utils;
+﻿using ExchangeApi.Enums;
+using ExchangeApi.Rest.Future.Data.Trades;
+using GraphCandleApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphCandleApp.Loaders.Connections
+namespace GraphCandleApp.Loaders.Connections.Abstract
 {
     public interface IRestConnection
     {

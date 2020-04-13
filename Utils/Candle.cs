@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExchangeApi.Rest.Future.Data.Trades;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

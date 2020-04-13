@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using ExchangeApi.Enums;
 using GraphCandleApp.Utils;
 using Newtonsoft.Json;
 

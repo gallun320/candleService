@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GraphCandleApp.Loaders.Connections
+namespace GraphCandleApp.Servers
 {
     public class NamedPipePoolManager
     {

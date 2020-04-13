@@ -10,7 +10,7 @@ namespace GraphCandleApp.Services
     {
         public string GetMathDictionary(List<FutureKlineData> timeSeriesData)
         {
-            return timeSeriesData.Last().Close.ToString();
+            return (timeSeriesData.Last().Close + timeSeriesData.Last().Open).ToString();
         }
     }
 }

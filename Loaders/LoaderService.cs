@@ -1,4 +1,6 @@
-﻿using GraphCandleApp.Loaders.Connections;
+﻿using ExchangeApi.Rest.Future.Data.Trades;
+using GraphCandleApp.Loaders.Connections;
+using GraphCandleApp.Loaders.Connections.Abstract;
 using GraphCandleApp.Loaders.Messages;
 using GraphCandleApp.Utils;
 using System;
@@ -15,9 +17,10 @@ namespace GraphCandleApp.Loaders
         private readonly List<TradeData> _webSocketCahce;
         private readonly object _lockObj = new object();
         private bool _cacheRunning = true;
-        private readonly FileLoader _fileLoader;
-        private readonly IRestConnection _restConnector;
-        private readonly IWebSocketConnection _webSocketConnector;
+        private FileLoader _fileLoader;
+        private IRestConnection _restConnector;
+        private IWebSocketConnection _webSocketConnector;
+        private ConnectionFactory _factory;
 
         private readonly ExchangeData _connectionData;
         public ExchangeData Connection => _connectionData;
@@ -27,8 +30,14 @@ namespace GraphCandleApp.Loaders
             _cache = new List<TradeData>();
             _webSocketCahce = new List<TradeData>();
             _connectionData = connectionData;
-            _restConnector = new RestConnectionDummy(Connection);
-            _webSocketConnector = new WebSocketConnectionDummy(Connection);
+            InitServices();
+        }
+
+        private void InitServices()
+        {
+            _factory = new ConnectionFactory();
+            _restConnector = _factory.GetRestClient(Connection);
+            _webSocketConnector = _factory.GetWebSocketClient(Connection);
             _fileLoader = new FileLoader(AppPaths.DataPath);
         }
 
