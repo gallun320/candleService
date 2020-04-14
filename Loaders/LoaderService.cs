@@ -69,7 +69,7 @@ namespace GraphCandleApp.Loaders
                                                       }
 
                                                       
-                                                  }, TaskContinuationOptions.OnlyOnRanToCompletion);
+                                                  });
             
         }
 

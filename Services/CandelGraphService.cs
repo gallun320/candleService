@@ -15,7 +15,7 @@ namespace GraphCandleApp.Services
         public CandelGraphService(VolumeBarArbitrageData arbitrageData)
         {
             _candleDict = new Dictionary<string, List<FutureKlineData>>();
-            _pipeSender = new PipeSenderSerivce(arbitrageData.PipeName, arbitrageData);
+            _pipeSender = new DummyPipeSenderService(arbitrageData.PipeName, arbitrageData);
             _mathCalculatorService = new DummyMathCalculatorService();
 
         }
