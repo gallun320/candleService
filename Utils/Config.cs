@@ -26,7 +26,7 @@ namespace GraphCandleApp.Utils
 
     public class ExchangeData
     {
-        public Exchange Exchange;
+        public string Exchange;
         public string Instrument = "";
 
         /// <summary>

@@ -11,7 +11,7 @@ namespace GraphCandleApp.Loaders.Connections
     {
         public IRestConnection GetRestClient(ExchangeData connectionData)
         {
-            switch(connectionData.Exchange)
+            switch((Exchange)Enum.Parse(typeof(Exchange), connectionData.Exchange))
             {
                 case Exchange.Bitmex:
                     return new BitmexRestConnection(connectionData);
@@ -24,7 +24,7 @@ namespace GraphCandleApp.Loaders.Connections
 
         public IWebSocketConnection GetWebSocketClient(ExchangeData connectionData)
         {
-            switch (connectionData.Exchange)
+            switch ((Exchange)Enum.Parse(typeof(Exchange), connectionData.Exchange))
             {
                 case Exchange.Bitmex:
                     return new BitmexWebSocketConnection(connectionData);

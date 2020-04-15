@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using ExchangeApi.Enums;
 using GraphCandleApp.Utils;
@@ -42,9 +43,9 @@ namespace GraphCandleApp.Loaders
                     ExchangeDataList = new List<ExchangeData>
                     {
                         new ExchangeData
-                            {Exchange = Exchange.Bitmex, Instrument = "XBTUSD", VolumeBarAmount = 1_000_000},
+                            {Exchange = Enum.GetName(typeof(Exchange), Exchange.Bitmex), Instrument = "XBTUSD", VolumeBarAmount = 1_000_000},
                         new ExchangeData()
-                            {Exchange = Exchange.BinanceFutures, Instrument = "BTCUSDT", VolumeBarAmount = 1_000},
+                            {Exchange = Enum.GetName(typeof(Exchange), Exchange.BinanceFutures), Instrument = "BTCUSDT", VolumeBarAmount = 1_000},
                     }
                 }
             };

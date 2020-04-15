@@ -1,4 +1,5 @@
-﻿using ExchangeApi.Rest.Future.Data.Trades;
+﻿using ExchangeApi.Enums;
+using ExchangeApi.Rest.Future.Data.Trades;
 using GraphCandleApp.Loaders.Connections;
 using GraphCandleApp.Loaders.Connections.Abstract;
 using GraphCandleApp.Loaders.Messages;
@@ -38,7 +39,7 @@ namespace GraphCandleApp.Loaders
             _factory = new ConnectionFactory();
             _restConnector = _factory.GetRestClient(Connection);
             _webSocketConnector = _factory.GetWebSocketClient(Connection);
-            _fileLoader = new FileLoader(AppPaths.DataPath);
+            _fileLoader = new FileLoader(ConfigLoader.Config.TradesFileDirectory);
         }
 
         public event EventHandler<LoaderMessage> OnLoadUpdate;
@@ -52,9 +53,9 @@ namespace GraphCandleApp.Loaders
         {
             Logger.BaseLog.Log("StartLoad");
             _webSocketConnector.OnDataUpdate += UpdateCache;
-            var trades = _fileLoader.LoadTrades(Connection.Exchange, Connection.Instrument);
+            var trades = _fileLoader.LoadTrades((Exchange)Enum.Parse(typeof(Exchange), Connection.Exchange) , Connection.Instrument);
             _cache.AddRange(trades);
-            await _restConnector.GetDataByPeriod(Connection.Exchange, Connection.Instrument, trades.Last().Date, DateTime.UtcNow)
+            await _restConnector.GetDataByPeriod((Exchange)Enum.Parse(typeof(Exchange), Connection.Exchange), Connection.Instrument, trades.Last().Date, DateTime.UtcNow)
                                                   .ContinueWith((task) =>
                                                   {
                                                       var data = task.Result;
